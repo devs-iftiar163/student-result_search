@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students Data Panel</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Bootstrap CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <!-- Panel Structure -->
+    <div class="container my-3">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-10 col-10 my-5">
+          <button
+            class="btn btn-primary mb-3"
+            data-bs-target="#student-add-info"
+            data-bs-toggle="modal"
+          >
+            Add New Student
+          </button>
+          <a href="./index.html" class="btn btn-success mb-3">Search Result</a>
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="card-title">
+                <h4>Students Information</h4>
+              </div>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Roll</th>
+                    <th>Reg No.</th>
+                    <th>Created At</th>
+                    <th>Result</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody class="show-students"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Marks Students -->
+    <div class="modal fade" id="student-result-info">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Student Result Info</h4>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="res_msg"></div>
+            <form id="students-form-result">
+              <div class="my-2">
+                <input
+                  type="hidden"
+                  placeholder="ID"
+                  class="form-control"
+                  name="id"
+                />
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Bangla"
+                  name="bangla"
+                />
+                <label for="floatingInput">Bangla</label>
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="English"
+                  name="english"
+                />
+                <label for="floatingInput">English</label>
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  placeholder="Mathmetics"
+                  class="form-control"
+                  id="floatingInput"
+                  name="math"
+                />
+                <label for="floatingInput">Mathmetics</label>
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  placeholder="Science"
+                  class="form-control"
+                  id="floatingInput"
+                  name="science"
+                />
+                <label for="floatingInput">Science</label>
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  placeholder="Social Science"
+                  class="form-control"
+                  id="floatingInput"
+                  name="social_science"
+                />
+                <label for="floatingInput">Social Science</label>
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  placeholder="Religion"
+                  class="form-control"
+                  id="floatingInput"
+                  name="religion"
+                />
+                <label for="floatingInput">Religion</label>
+              </div>
+              <div class="my-2">
+                <button type="submit" class="btn btn-success">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+                <button type="reset" class="btn btn-warning">
+                  <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Edit Marks Students -->
+    <div class="modal fade" id="student-marks-edit">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Student Result Info</h4>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mark_msg"></div>
+            <form id="students-form-marks">
+              <div class="my-2">
+                <input
+                  type="text"
+                  placeholder="ID"
+                  class="form-control"
+                  name="id"
+                />
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Bangla"
+                  name="bangla"
+                />
+                <label for="floatingInput">Bangla</label>
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="English"
+                  name="english"
+                />
+                <label for="floatingInput">English</label>
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  placeholder="Mathmetics"
+                  class="form-control"
+                  id="floatingInput"
+                  name="math"
+                />
+                <label for="floatingInput">Mathmetics</label>
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  placeholder="Science"
+                  class="form-control"
+                  id="floatingInput"
+                  name="science"
+                />
+                <label for="floatingInput">Science</label>
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  placeholder="Social Science"
+                  class="form-control"
+                  id="floatingInput"
+                  name="social_science"
+                />
+                <label for="floatingInput">Social Science</label>
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  placeholder="Religion"
+                  class="form-control"
+                  id="floatingInput"
+                  name="religion"
+                />
+                <label for="floatingInput">Religion</label>
+              </div>
+              <div class="my-2">
+                <button type="submit" class="btn btn-success">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Add Students -->
+    <div class="modal fade" id="student-add-info">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Add Student Info</h4>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="message"></div>
+            <form id="students-form">
+              <div class="my-2">
+                <input
+                  type="text"
+                  placeholder="Students Name"
+                  class="form-control"
+                  name="name"
+                />
+              </div>
+              <div class="my-2">
+                <input
+                  type="text"
+                  placeholder="Roll No"
+                  class="form-control"
+                  name="roll"
+                />
+              </div>
+              <div class="my-2">
+                <input
+                  type="text"
+                  placeholder="Reg No"
+                  class="form-control"
+                  name="reg"
+                />
+              </div>
+              <div class="my-2">
+                <input
+                  type="text"
+                  placeholder="Student Image"
+                  class="form-control"
+                  name="photo"
+                />
+              </div>
+              <div class="my-2">
+                <button type="submit" class="btn btn-success">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+                <button type="reset" class="btn btn-warning">
+                  <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Edit Students -->
+    <div class="modal fade" id="student-edit-info">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Edit Student Info</h4>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="message-edit"></div>
+            <form id="students-form-edit">
+              <div class="my-2">
+                <input
+                  type="hidden"
+                  placeholder="ID"
+                  class="form-control"
+                  name="id"
+                />
+              </div>
+              <div class="my-2">
+                <input
+                  type="text"
+                  placeholder="Students Name"
+                  class="form-control"
+                  name="name"
+                />
+              </div>
+              <div class="my-2">
+                <input
+                  type="text"
+                  placeholder="Roll No"
+                  class="form-control"
+                  name="roll"
+                />
+              </div>
+              <div class="my-2">
+                <input
+                  type="text"
+                  placeholder="Reg No"
+                  class="form-control"
+                  name="reg"
+                />
+              </div>
+              <div class="my-2">
+                <input
+                  type="text"
+                  placeholder="Student Image"
+                  class="form-control"
+                  name="photo"
+                />
+              </div>
+              <div class="my-2">
+                <img id="previosPhoto" src="" alt="" />
+              </div>
+              <div class="my-2">
+                <button type="submit" class="btn btn-success">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Single View Modal -->
+    <div class="modal fade" id="student-single-info">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Student Information</h4>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body" id="single-view-data"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Web Main JS -->
+    <script src="./app/data.js"></script>
+    <script src="./app/functions.js"></script>
+    <script src="./app/main.js"></script>
+    <script src="./app/search.js"></script>
+  </body>
+</html>

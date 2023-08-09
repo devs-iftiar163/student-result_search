@@ -1,0 +1,34 @@
+.student-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.student-image-single img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#previosPhoto {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 20%;
+}
+.custom-padding {
+  padding: 30px;
+}
+
+.student-img img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.loader {
+  display: none;
+}
